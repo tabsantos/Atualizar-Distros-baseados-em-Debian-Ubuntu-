@@ -4,14 +4,48 @@ echo " "
 echo "Vamos atualizar a porra do sistema!" 
 echo " " 
 
-sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get dist-upgrade -y && sudo apt-get full-upgrade -y && sudo apt-get autoremove -y && sudo apt-get autoclean && sudo apt-get clean && update-grub
+
+echo " "
+echo "Atualizaçao APT"
+echo " "
+
+sudo apt update; sudo apt upgrade -y; sudo apt dist-upgrade -y; sudo apt full-upgrade -y; sudo apt autoremove -y; sudo apt autoclean; sudo apt clean; sudo update-grub
 
 sudo rm -R /var/log/* 
 
 sudo mkdir /var/log/apt
 
+
+echo " "
+echo "Atualização Flatpak"
+echo " "
+
+flatpak update -y
+
+
+echo " "
+echo "Atualização PIP"
+echo " "
+
+pip3 install --upgrade pip
+
+
+echo " "
+echo "Atualizaçao R"
+echo " "
+
+Rscript -e 'update.packages(checkBuilt=TRUE,ask=FALSE,dependencies=TRUE,force=TRUE,repo="https://cran-r.c3sl.ufpr.br")'
+
+
+echo " "
+echo "Atualização conda base"
+echo " "
+
+conda update --all -y; conda update conda -y
 echo " " 
 echo "Terminou, disgraça!" 
 echo " " 
 echo "Vai carai!!!" 
 echo " " 
+
+exit
